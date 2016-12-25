@@ -39,6 +39,7 @@ public class Solution {
     }
     
     public ListNode numberToNode(int number) {
+        if (number == 0) return new ListNode(0);
         ListNode sum = null;
         int digit;
         
