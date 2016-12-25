@@ -8,11 +8,11 @@
  */
 public class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int num1 = nodeToNumber(reverseList(l1));
-        int num2 = nodeToNumber(reverseList(l2));
+        long num1 = nodeToNumber(reverseList(l1));
+        long num2 = nodeToNumber(reverseList(l2));
         if (num1 == -1 || num2 == -1 )
             return null;
-        int sum = num1 + num2;
+        long sum = num1 + num2;
         return numberToNode(sum);
     }
     
@@ -27,9 +27,9 @@ public class Solution {
         return reversed;
     }
     
-    public int nodeToNumber(ListNode node) {
+    public long nodeToNumber(ListNode node) {
         if (node == null) return -1; //Error
-        int number = node.val;
+        long number = node.val;
         while(node.next != null) {
             node = node.next;
             number *= 10;
@@ -38,16 +38,16 @@ public class Solution {
         return number;
     }
     
-    public ListNode numberToNode(int number) {
+    public ListNode numberToNode(long number) {
         if (number == 0) return new ListNode(0);
         ListNode sum = null;
-        int digit;
-        
+        long digit;
+
         //Convert number into digits and push into linkedlist
         while (number > 0) {
             digit = number%10;
             number = number/10;
-            ListNode temp = new ListNode(digit);
+            ListNode temp = new ListNode((int) digit);
             temp.next = sum;
             sum = temp;
         }
